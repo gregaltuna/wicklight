@@ -1,0 +1,43 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+body {
+	background: url(../images/body.gif);
+	font-family: "Lucida Grande", "Myriad Pro", "Helvetica Neue", Verdana, Arial, sans-serif;
+	}
+	
+/* ------------------------------------------------------------------------------------------ [ THE THEME ] ----- */
+header {
+	background: url(../images/green-case-spools.jpg) top center no-repeat;
+	background-size: cover;
+	}
+
+#zone-content {
+	background: #fff;
+	}
+	
+#zone-footer {
+	min-height: 60px;
+	margin-bottom: 3em;
+	background: #e8d9c2;
+	}
+
+.centered {
+	text-align: center;
+	margin: 0 auto;
+	}
+
+.messages {
+	margin: 0 2em;
+}
+	
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */
+/* -------------------------------------------------------------------------------------- [ GLOBAL STYLES ] ----- */

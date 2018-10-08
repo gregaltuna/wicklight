@@ -1,0 +1,174 @@
+<?php
+
+function bs_vboship_menu(){
+	$items = array();
+	$items['bs_stamps_download'] = array(
+    'title' => 'Download XML For Stamps.com',
+    'page callback' => 'bs_vboship_download',
+    'access arguments' => array('view all orders'),
+  );
+  return $items;
+}
+
+function bs_vboship_action_info(){
+	return array(
+		'bs_vboship_custom_action' => array(
+			'type' => 'entity',
+			'label' => t('Bulk Shipping Operation'),
+			'configurable' => FALSE,
+			'vbo_configurable' => FALSE,
+			'aggregate' => TRUE,
+			'triggers' => array('any')
+		),
+		
+		'bs_vboship_export' => array(
+			'type' => 'entity',
+			'label' => t('Re-Export to Stamps.com'),
+			'configurable' => FALSE,
+			'vbo_configurable' => FALSE,
+			'aggregate' => TRUE,
+			'triggers' => array('any')
+		),
+	);
+}
+
+function bs_vboship_custom_action(&$objects, $context){
+	$shipping_type_weights = variable_get('uc_quote_type_weight', array());
+	foreach($objects as $object){
+		// Get best shipping type for this package
+		$max_weight = -9999;
+		$best_type = '';
+	
+		foreach($object->products as $product){
+			if($product->data['shippable']){
+				$product->shipping_type = uc_product_get_shipping_type($product);
+				$weight = $shipping_type_weights[$product->shipping_type];
+				if($weight > $max_weight){
+					$max_weight = $weight;
+					$best_type = $product->shipping_type;
+				}
+			}
+		}
+	
+		// Create new package
+		$package = new stdClass();
+		$package->order_id = $object->order_id;
+		$package->shipping_type = $best_type;
+		$package->products = array();
+		foreach($object->products as $product){
+			$package->products[$product->order_product_id] = $product;
+		}
+		
+		uc_shipping_package_save($package);
+		
+		// Create new shipment
+		$shipment = new stdClass();
+		$shipment->order_id = $object->order_id;
+		$shipment->shipping_method = 'stamps';
+		$shipment->carrier  = 'USPS';
+		$shipment->packages = array();
+		$shipment->packages[$package->package_id] = $package;
+		$shipment->ship_date = time();
+		$shipment->expected_delivery = time();		
+		$shipment->origin = array(
+			'company' => uc_store_name(),
+			'street1' => variable_get('uc_store_street1', ''),
+			'street2' => variable_get('uc_store_street2', ''),
+			'city' => variable_get('uc_store_city', ''),
+			'zone' => variable_get('uc_store_zone', 0),
+			'postal_code' => variable_get('uc_store_postal_code', ''),
+			'country' => uc_store_default_country()			
+		);
+		
+		$shipment->destination = array(
+			'first_name' => $object->delivery_first_name,
+			'last_name' => $object->delivery_last_name,
+			'company' => $object->delivery_company,
+			'street1' => $object->delivery_street1,
+			'street2' => $object->delivery_street2,
+			'city' => $object->delivery_city,
+			'zone' => $object->delivery_zone,
+			'postal_code' => $object->delivery_postal_code,
+			'country' => $object->delivery_country			
+		);
+		
+		$shipment_options = array('class' => 'first class');
+		$shipment->accessorials = uc_stamps_services_string($shipment_options);
+		
+		$units = variable_get('uc_weight_unit', 'oz');
+		$weight = 0;
+		$value = 0;
+		foreach($object->products as $product){
+			$units_conversion = uc_weight_conversion($product->weight_units, $units);
+			$weight += $product->weight * $units_conversion * $product->qty;
+			$value += $product->price * $product->qty;
+		}
+		$package->weight = $weight;
+		$package->weight_units = $units;
+		$package->value = $value;
+		
+		$shipment->products = $package->products;
+		uc_shipping_shipment_save($shipment);
+		
+		module_load_include('inc', 'uc_stamps', 'uc_stamps.shared');
+		$order = uc_order_load($object->order_id);
+		$mode = uc_stamps_best_mode($order);
+		$container = uc_stamps_best_container($mode, $package);
+			
+		$package->tracking_number = 'queued';
+		$package->pkg_type = $container->cid;
+		$package->length = $container->length;
+		$package->width = $container->width;
+		$package->height = $container->height;
+		$package->length_units = $container->length_units;
+		$package->sid = $shipment->sid;	
+		uc_shipping_package_save($package);
+				
+		// Set order status to completed
+		uc_order_update_status($object->order_id, "completed");
+	}
+	
+	// Print all the invoices
+	bs_vboship_print($objects);	
+}
+
+function bs_vboship_export(&$objects, $context){
+
+	foreach ($objects as $order){
+		db_update('uc_packages')->fields(array('tracking_number' => 'queued'))->condition('order_id', $order->order_id, '=')->execute();
+	}
+	drupal_goto('/bs_stamps_download');
+}
+
+
+function bs_vboship_print($orders){
+  $output = '';
+  $order_ids = array();
+  foreach ($orders as $order) {
+    $output .= '<div style="page-break-after: always;">';
+    $output .= theme('uc_order', array(
+      'order' => $order,
+      'op' => 'print',
+      'template' => variable_get('uc_cust_order_invoice_template', 'customer'),
+    ));
+    $output .= '</div>';
+  }
+  print '<html><head><title>Invoice</title></head>';
+  print '<body onload="print();">';
+  print $output;
+  print '<iframe style="visibility: hidden;" src="/bs_stamps_download"></iframe></body></html>';
+  exit;
+}
+
+function bs_vboship_download(){
+	module_load_include('inc', 'uc_stamps', 'uc_stamps.xml');
+	$datestr = 'stamps201310161620.xml';
+	$xml_doc = uc_stamps_shipments_export();
+	if (is_null($xml_doc)) {
+		drupal_set_message(t('No shipments to export.'), 'warning');
+		return;
+	}
+	header('Content-Type: text/xml');
+	header("Content-Disposition: attachment; filename=\"$datestr\"");
+	echo $xml_doc->saveXML();
+}

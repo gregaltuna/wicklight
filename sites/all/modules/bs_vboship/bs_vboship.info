@@ -1,0 +1,9 @@
+name = VBO Shipping Operation
+description = Custom VBO Shipping Operations for Wicklight
+package = Brownco Custom Modules
+core = 7.x
+
+dependencies[] = uc_cart
+dependencies[] = uc_stamps
+dependencies[] = views
+dependencies[] = views_bulk_operations

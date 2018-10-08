@@ -1,0 +1,16 @@
+GGS Shell Checking System
+===Shell Check List===
+Binary file (standard input) matches
+===ClamAv Check List===
+
+----------- SCAN SUMMARY -----------
+Known viruses: 6572557
+Engine version: 0.99.4
+Scanned directories: 773
+Scanned files: 5256
+Infected files: 0
+Data scanned: 99.06 MB
+Data read: 163.93 MB (ratio 0.60:1)
+Time: 122.630 sec (2 m 2 s)
+===Maldet Check List===
+===Image Check List===

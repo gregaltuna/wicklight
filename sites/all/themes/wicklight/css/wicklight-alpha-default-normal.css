@@ -1,0 +1,421 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+ 
+ /* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */
+.container-12 .grid-1 {
+	width: 80px !important;
+	}
+
+.container-12 .grid-2 {
+	width: 160px !important;
+	}
+
+.container-12 .grid-3 {
+	width: 240px !important;
+	}
+
+.container-12 .grid-4 {
+	width: 320px !important;
+	}
+
+.container-12 .grid-5 {
+	width: 400px !important;
+	}
+
+.container-12 .grid-6 {
+	width: 480px !important;
+	}
+
+.container-12 .grid-7 {
+	width: 560px !important;
+	}
+
+.container-12 .grid-8 {
+	width: 640px !important;
+	}
+
+.container-12 .grid-9 {
+	width: 720px !important;
+	}
+
+.container-12 .grid-10 {
+	width: 800px !important;
+	}
+
+.container-12 .grid-11 {
+	width: 880px !important;
+	}
+
+.container-12 .grid-12 {
+	width: 960px !important;
+	}
+
+ /* --------------------------------------------------------------------------------------------- [ HEADER ] ----- */
+.container-12 #region-header-first.grid-12 {
+	width: 940px !important;
+	}
+
+#region-branding {
+	}
+
+.branding-data {
+	width: 310px;
+	width: 381px;
+	float: left;
+	}
+
+.block-main-menu {
+	width: 650px;
+	width: 579px;
+	float: left;
+	clear: right;
+	}
+
+.logo-img {
+	margin: -55px 0 -106px 10px;
+	margin: 0 0 -16px 10px;
+	}
+
+.logo-img img {
+	}
+
+.not-front .logo-img img {
+	}
+
+#zone-header-wrapper {
+	}
+
+#block-system-main-menu {
+	height: 210px;
+	position: relative;
+	}
+
+.not-front .block-main-menu {
+	}
+
+.block-main-menu .block-inner {
+	width: 655px;
+	}
+
+.block-main-menu ul.menu {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	}
+
+.block-main-menu ul.menu li {
+	margin: 0;
+	padding: 0;
+	}
+
+.block-main-menu ul.menu li a,
+.block-main-menu ul.menu li a:link,
+.block-main-menu ul.menu li a:active,
+.block-main-menu ul.menu li a:visited {
+	font-size: 16px;
+	line-height: 60px;
+	padding: 20px 12px 21px 12px !important;
+	}
+
+.uc-product-node a#menu-shop,
+.block-main-menu ul.menu li.active-trail a {
+	border: none;
+	padding: 29px 12px 29px 12px !important;
+	padding-left: 13px !important;
+}
+
+.block-main-menu ul.menu li.active-trail+li a {
+	padding-left: 13px !important;
+}
+
+.block-main-menu ul.menu li {
+	border-left: solid 1px #72582d;
+}
+
+.block-main-menu ul.menu li.first.leaf,
+.block-main-menu ul.menu li.active-trail,
+.block-main-menu ul.menu li.active-trail+li,
+.front .block-main-menu ul.menu li.first.leaf+li {
+	border: none;
+}
+
+.block-main-menu ul.menu li.last.leaf {
+	width: 60px;
+	height: 60px;
+	background: url(../images/icon-cart3.png) center center no-repeat;
+	background-size: 50%;
+}
+
+.context-cart .block-main-menu ul.menu li.last.leaf,
+.block-main-menu ul.menu li.last.leaf:hover,
+.block-main-menu ul.menu li.last.leaf:focus {
+	background-color: #294E37;
+}
+
+.block-main-menu ul.menu li.last.leaf a {}
+
+.block-main-menu ul.menu li.last.leaf a,
+.block-main-menu ul.menu li.last.leaf a:hover,
+.block-main-menu ul.menu li.last.leaf a:focus {
+	font-size: 12px;
+	width: 60px !important;
+	height: 60px !important;
+	color: transparent !important;
+	background-color: transparent;
+	padding: 22px 11px 23px 15px !important;
+}
+
+/* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */
+#zone-user-wrapper {
+	height: 20px;
+	}
+
+/* --------------------------------------------------------------------------------------- [ CONTENT AREA ] ----- */
+.not-front.logged-in #messages {
+/*	display: none; */
+	}
+
+.messages {
+	margin: 0 2em 1em 2em !important;
+}
+
+#zone-content {
+	padding-top: 50px;
+	}
+
+.not-front #zone-content {
+	padding-top: 50px;
+	}
+
+#zone-content .region-content-inner {
+	padding: 0 47px 20px 47px;
+	}
+
+.not-front #zone-content .region-content-inner {
+	padding: 0 38px 50px 38px;
+	}
+
+.alt-page-header {
+	color: #5a4528; /* dark green */
+	color: #BE8C57; /* mustard brown */
+	text-transform: uppercase;
+	}
+
+.gray-logo-front {
+	margin: 25px 0 29px 0;
+	}
+
+.front-copy {
+	color: #666;
+	font-size: 17px;
+	}
+
+.wicklight-flourish {
+	margin: 1.5em 0 2em 0;
+	}
+
+.bottom-flourish {
+	margin: 2em 0 1.75em 0;
+	}
+
+.small-link {
+	font-size: 12px;
+	}
+
+.small-link a,
+.small-link a:link,
+.small-link a:active,
+.small-link a:visited {
+	text-decoration: none !important;
+	color: #888 !important;
+	}
+
+.small-link a:hover,
+.small-link a:focus {
+	text-decoration: underline !important;
+	color: #333 !important;
+	}
+
+/* -------------------------------------------------------------------------------------- [ PRODUCT PAGES ] ----- */
+/*
+.uc-product-node h1#page-title {
+	padding: 0 0 0 33px; 
+	}
+
+.uc-product-node #zone-content .region-content-inner {
+	padding: 0 0 20px 0; 
+	}
+
+.uc-product-node .container-12 .grid-9 {
+	width: 633px !important;
+	padding: 0 40px 0 33px;
+	}
+*/
+
+.uc-product-node .field-name-uc-product-image {
+	padding-right: 40px;
+	}
+
+.uc-product-node .region-content-inner img {
+	background: #fff;
+	border: solid 2px #efefef;
+	}
+
+.uc-product-node .field-name-uc-product-image {
+	margin: 0 0 10px 0;
+	}
+
+.uc-product-node .field-name-field-lighter-alt-images .field-item {
+	display: block;
+	float: left;
+	margin: 0 9px 9px 0;
+	}
+
+.sell-price {
+	margin: 1.5em 0;
+	}
+
+.uc-price-label {
+	font-weight: bold;
+	font-size: 16px;
+	}
+
+.uc-price {
+	font-weight: bold;
+	font-size: 16px;
+	color: #090;
+	}
+
+#uc_product_add_to_cart_form-3-attributes label {
+	font-weight: normal;
+	}
+
+.main-img {
+	padding: 0 0 10px 0;
+}
+
+.alt-img img {
+	margin: 0 5px 5px 0;
+}
+
+/* -------------------------------------------------------------------------------------- [ SHOPPING CART ] ----- */
+#uc-cart-checkout-form table,
+#cart-form-pane table {
+	border: none;
+	}
+
+#uc-cart-checkout-form th,
+#cart-form-pane th {
+	color: #999;
+	font-size: 17px;
+	padding: 5px 0 0 0;
+	background: transparent;
+	border: none;
+	}
+
+#uc-cart-checkout-form tr,
+#cart-form-pane table tr {
+	border: none;
+	background: none;
+	padding: 0;
+	}
+
+#uc-cart-checkout-form td,
+#cart-form-pane td {
+	padding: 20px 0 15px 0;
+	background: transparent;
+	}
+
+#uc-cart-checkout-form tr.even,
+#cart-form-pane tr.even {
+	border-top: solid 1px #eee;
+	border-bottom: solid 1px #eee;
+	background: transparent;
+	}
+
+#cart-form-pane .remove,
+#cart-form-pane .qty,
+#uc-cart-checkout-form .qty,
+#uc-cart-checkout-form .subtotal #subtotal-title {
+	padding-right: 20px;
+	}
+
+#uc-cart-checkout-form td.qty {
+	vertical-align: top;
+	font-weight: bold;
+	padding-top: 21px;
+	font-size: 18px;
+	color: #224832;
+	}
+
+#cart-form-pane #subtotal-title {
+	padding-right: 15px;
+	}
+
+#cart-form-pane #edit-actions {
+	padding-top: 15px;
+	}
+
+#uc-cart-view-form #edit-continue-shopping {
+	margin-left: 0;
+	}
+
+#cart-form-pane .form-actions input {
+	margin-right: 0;
+	}
+
+#cart-form-pane .form-actions input#edit-update {
+	margin-right: 10px;
+	}
+
+#uc-cart-checkout-form legend {
+	display: none;
+	}
+
+#cart-form-pane td.desc ul.product-description li,
+td.products ul.product-description li {
+	margin-left: 0;
+	font-size: 13px;
+	color: #999;
+	}
+
+/* --------------------------------------------------------------------------------------- [ CONTACT PAGE ] ----- */
+#webform-component-question-or-comment,
+#webform-component-question-or-comment textarea,
+#webform-component-phone input {
+	width: 397px !important;
+	}
+
+/* ----------------------------------------------------------------------------------------- [ ABOUT PAGE ] ----- */
+.context-about-wick-light #page-title {
+	text-align: center;
+}
+
+.about-img {
+	width: 424px;
+	display: block;
+	float: left;
+}
+
+.about-img img {
+	width: 420px;
+	height: 420px;
+	padding: 2px;
+	background: #dbd0ba;
+	background: #efefef;
+}
+
+.about-copy {
+	width: 460px;
+	display: block;
+	float: left;
+}
+
+.about-copy .inside {
+	padding-left: 40px;
+}
+
+/* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */
+/* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */
+/* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */

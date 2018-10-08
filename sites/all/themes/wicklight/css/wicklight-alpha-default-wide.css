@@ -1,0 +1,137 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+
+/* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */
+.container-12 .grid-1 {
+	width: 100px !important;
+	}
+
+.container-12 .grid-2 {
+	width: 200px !important;
+	}
+
+.container-12 .grid-3 {
+	width: 300px !important;
+	}
+
+.container-12 .grid-4 {
+	width: 400px !important;
+	}
+
+.container-12 .grid-5 {
+	width: 500px !important;
+	}
+
+.container-12 .grid-6 {
+	width: 600px !important;
+	}
+
+.container-12 .grid-7 {
+	width: 700px !important;
+	}
+
+.container-12 .grid-8 {
+	width: 800px !important;
+	}
+
+.container-12 .grid-9 {
+	width: 900px !important;
+	}
+
+.container-12 .grid-10 {
+	width: 1000px !important;
+	}
+
+.container-12 .grid-11 {
+	width: 1100px !important;
+	}
+
+.container-12 .grid-12 {
+	width: 1200px !important;
+	}
+
+ /* --------------------------------------------------------------------------------------------- [ HEADER ] ----- */
+.container-12 #region-header-first.grid-12 {
+	width: 1180px !important;
+	}
+
+#region-branding {
+/*	height: 292px; */
+	}
+
+.branding-data {
+	width: 305px;
+/*	height: 292px; */
+	float: left;
+	}
+
+.block-main-menu {
+	width: 895px;
+/*	height: 190px; */
+	float: left;
+	clear: right;
+/*	position: relative; */
+	}
+
+.not-front .block-main-menu {
+/*	height: 186px !important; */
+	}
+
+.block-main-menu .block-inner {
+	width: 895px;
+/*	height: 60px;
+	background: #fff; */
+	}
+
+.not-front .block-main-menu .block-inner {
+/*	height: 75px !important; */
+	}
+
+.logo-img img {
+	margin-left: 0;
+	}
+
+.not-front .logo-img img {
+	margin-left: 0;
+	}
+
+#zone-header-wrapper {
+/*	margin-top: -106px; */
+	}
+
+.block-main-menu ul.menu {
+	padding: 65px 0 0 0;
+	}
+
+.block-main-menu ul.menu li {
+	margin: 0 0 0 -5px;
+	padding: 0;
+	}
+
+.block-main-menu ul.menu li a,
+.block-main-menu ul.menu li a:link,
+.block-main-menu ul.menu li a:active,
+.block-main-menu ul.menu li a:visited {
+	font-size: 20px;
+	line-height: 60px;
+/*	padding: 24px 20px 18px 20px !important; */
+	padding: 18px 20px 29px 20px !important;
+	}
+
+.block-main-menu ul.menu li.active-trail a {
+	padding: 18px 20px 29px 20px !important;
+	}
+
+/* ----------------------------------------------------------------------------------------- [ GRID FIXES ] ----- */
+#zone-user-wrapper {
+	height: 20px;
+	}
+
+/* --------------------------------------------------------------------------------------- [ CONTENT AREA ] ----- */
+#zone-content {
+	padding-top: 120px;
+	}
+
+#zone-content .region-content-inner {
+	padding: 0 47px 20px 47px;
+	}
+
